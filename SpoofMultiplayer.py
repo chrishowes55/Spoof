@@ -6,7 +6,7 @@ class Player:
         self.score = 0
 
     def addToScore(self):
-        score += 1
+        self.score += 1
 
     def makeAGuess(self, guess):
         self.guess = guess
@@ -37,12 +37,11 @@ for i in range(0, rounds):
         total = 0
         for k in range(0, len(players)):
             total += int(players[k].coins)
-        if players[j].guess == total:
-            print(players[j].name + " wins!")
+        if int(players[j].guess) == total:
+            print(players[j].name + " wins with " + str(players[j].guess) + "!")
             players[j].addToScore()
         else:
-            print(players[j].name + " guessed incorrectly")
+            print(players[j].name + " guessed incorrectly with " + str(players[j].guess))
 
 for i in range(0, len(players)):
-    print("The score of " + players[j].name + " was " + players[j].score)
-        
+    print("The score of " + str(players[i].name) + " was " + str(players[i].score))
