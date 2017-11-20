@@ -25,6 +25,6 @@ for i in range(0, rounds):
                 score += 1
             else:
                 print("Incorrect.... Next round please")
+            guessing = False
 
-print("You scored " + score + " out of " + rounds)
-    
+print("You scored " + str(score) + " out of " + str(rounds))
