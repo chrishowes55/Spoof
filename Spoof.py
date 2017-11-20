@@ -14,9 +14,9 @@ score = 0
 for i in range(0, rounds):
     computerCoins = random.randint(0, 3)
     userCoins = int(input("How many coins would you like? (0-3)"))
-    userGuess = int(input("How many coins do you think there are in total?"))
     guessing = True
     while guessing:
+        userGuess = int(input("How many coins do you think there are in total?"))
         if userGuess < userCoins or userGuess > (6 + (userGuess - 3)):
             userGuess = int(input("THAT ISN'T POSSIBLE, SKRUB! Guess again kiddo (0-3) "))
         else:
@@ -28,3 +28,4 @@ for i in range(0, rounds):
             guessing = False
 
 print("You scored " + str(score) + " out of " + str(rounds))
+    
