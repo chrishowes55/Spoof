@@ -18,7 +18,7 @@ try:
     numberOfPlayers = int(input("How many players do you want? "))
     players = []
     for i in range(0, numberOfPlayers):
-        name = input("Hello, Player! What should I call you? ")
+        name = input("Hello, Player! What should I call you? ").strip()
         players.append(Player(name))
 
 
@@ -34,7 +34,7 @@ try:
             guessing = True
             while guessing:
                 print("got to while")
-                if j == 0 and not guess < players[j].coins and not guess > (6 - (guess - 3)):
+                if j == 0 and not guess < players[j].coins and not guess > (3*len(players) + (players[j].coins - 3)):
                     guessing = False
                 elif j == 0:
                     print("Invalid Guess! That is a silly mistake young person!")
@@ -42,7 +42,7 @@ try:
                 else:
                     for k in range(0, j):
                         print("got to for")
-                        if players[k].guess == guess or guess < players[j].coins or guess > (6 - (guess - 3)):
+                        if players[k].guess == guess or guess < players[j].coins or guess > (3*len(players) + (players[j].coins - 3)):
                             print("Invalid guess!")
                             guess = int(input("How many coins do you think there are? "))
                         else:
@@ -65,4 +65,4 @@ try:
     for i in range(0, len(players)):
         print("The score of " + str(players[i].name) + " was " + str(players[i].score))
 except ValueError as e:
-    print("You typed a letter where there should have been a number, please restart")
+    print("\033[91mYou typed a letter where there should have been a number, please restart")
