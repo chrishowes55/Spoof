@@ -1,5 +1,12 @@
 import random
 
+def use_learning(array_of_guesses, computerGuess):
+    if not doesUserTendToOne(array_of_guesses) == -1:
+        return computerGuess + doesUserTendToOne(array_of_guesses)
+
+def doesUserTendToOne(guesses):
+        
+
 print("We are going to play spoof!")
 userExcited = input("Are you excited? (Y/N) ")
 if userExcited == "Y":
@@ -19,7 +26,6 @@ for i in range(0, rounds):
     for j in range(0, len(userGuesses) + 1):
         if not userGuesses[j] == -1:
             userDefinedGuesses.append(userGuesses[j])
-    
     computerCoins = random.randint(0, 3)
     userCoins = int(input("How many coins would you like? (0-3)"))
     takingAGuess = True
@@ -30,6 +36,7 @@ for i in range(0, rounds):
     if userCoins > 3:
         print("Incorrect input... You lose")
         continue
+    use_learning(userDefinedGuesses, computerGuess)
     guessing = True
     firstTime = True
     while guessing:
