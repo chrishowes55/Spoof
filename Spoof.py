@@ -12,10 +12,21 @@ rounds = int(input("How many rounds would you like to play? "))
 userScore = 0
 computerScore = 0
 
+userGuesses = [-1]*rounds
+
 for i in range(0, rounds):
+    userDefinedGuesses = []
+    for j in range(0, len(userGuesses) + 1):
+        if not userGuesses[j] == -1:
+            userDefinedGuesses.append(userGuesses[j])
+    
     computerCoins = random.randint(0, 3)
     userCoins = int(input("How many coins would you like? (0-3)"))
-    computerGuess = random.randint(computerCoins, (6 + (computerCoins - 3)) + 1)
+    takingAGuess = True
+    while takingAGuess:
+        computerGuess = random.randint(computerCoins, (6 + (computerCoins - 3)) + 1)
+        if not computerGuess == userGuess:
+            takingAGuess = False
     if userCoins > 3:
         print("Incorrect input... You lose")
         continue
@@ -40,6 +51,6 @@ for i in range(0, rounds):
             else:
                 print("Incorrect.... Next round please")
             guessing = False
+        userGuesses[i] = userGuess
 
 print("You scored " + str(userScore) + " and the computer scored " +str(computerScore))
-    
