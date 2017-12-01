@@ -33,7 +33,6 @@ try:
             guess = int(input("How many coins do you think there are? "))
             guessing = True
             while guessing:
-                print("got to while")
                 if j == 0 and not guess < players[j].coins and not guess > (3*len(players) + (players[j].coins - 3)):
                     guessing = False
                 elif j == 0:
@@ -41,12 +40,10 @@ try:
                     guess = int(input("How many coins do you think there are? "))
                 else:
                     for k in range(0, j):
-                        print("got to for")
                         if players[k].guess == guess or guess < players[j].coins or guess > (3*len(players) + (players[j].coins - 3)):
                             print("Invalid guess!")
                             guess = int(input("How many coins do you think there are? "))
                         else:
-                            print("got to else")
                             guessing = False
                             break
             players[j].makeAGuess(guess)
